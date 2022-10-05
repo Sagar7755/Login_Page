@@ -1,0 +1,161 @@
+<div class="row">
+  <mat-toolbar style="Z-INDEX: 2;" class="matheader">
+      <marquee>
+        Welcome to Neotech IT Services
+      </marquee>
+    </mat-toolbar>
+  <mat-toolbar style="Z-INDEX: 2;" color="primary" class="mat-elevation-z8">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  <img class="avatar mat-elevation-z8" src="assets/images/logo.png">
+  <label class="companyName">
+    <span>Mark Express Pvt. Ltd.</span>
+  </label>
+  <span class="example-spacer1"></span>
+  <div fxShow="true" fxHide.lt-lg="true">
+    <mat-form-field class="mat-form-field-infix">
+      <input type="text" matInput placeholder="Search" class="search" style="font: block ;">
+      <mat-icon>search</mat-icon>
+    </mat-form-field>
+  </div>
+  <span class="example-spacer"></span>
+  <div fxShow="true" fxHide.lt-lg="true">
+    <a style="background-color: #d41010" mat-button (click)="logOut()">logout</a>
+  </div>
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+    <button mat-button class="menu-button" routerLink="/dashboard/home">
+      <mat-icon>info</mat-icon>
+      <span>Dashboard</span>
+    </button>
+    <mat-divider></mat-divider>
+  
+    <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon>
+      <span>Admin</span>
+    </button>
+    <mat-menu #menu="matMenu" class="sideMenu">
+      <button mat-menu-item routerLink="/dashboard/sales-report">Sales Report</button>
+      <button mat-menu-item routerLink="/dashboard/status-report">Status Report</button>
+      <button mat-menu-item routerLink="/dashboard/pending-manifest">Pending Manifest</button>
+      <button mat-menu-item routerLink="/dashboard/pending-run-sheet">Pending RunSheet</button>
+      <button mat-menu-item routerLink="/dashboard/summary">Summary</button>
+      <button mat-menu-item routerLink="/dashboard/create-login">Create Login</button>
+      <button mat-menu-item routerLink="/dashboard/status-entry">Status Entry</button>
+      <button mat-menu-item routerLink="/dashboard/business">Business</button>
+      <button mat-menu-item routerLink="/dashboard/poddownload">POD Download</button>
+      <button mat-menu-item routerLink="/dashboard/stock-issue">Stock Issue</button>
+   </mat-menu>
+    <mat-divider></mat-divider>
+  
+    <button mat-button [matMenuTriggerFor]="master" class="menu-button">
+      <mat-icon>person</mat-icon>
+      <span>Master</span>
+    </button>
+  <mat-menu #master="matMenu" class="sideMenu" yPosition="below">
+      <button mat-menu-item routerLink="/dashboard/company-master"> Company Master</button>
+      <button mat-menu-item routerLink="/dashboard/hub-master"> HUB Master</button>
+      <button mat-menu-item routerLink="/dashboard/branch-master"> Branch Master</button>
+      <button mat-menu-item routerLink="/dashboard/franchise-master"> Franchise Master</button>
+      <button mat-menu-item routerLink="/dashboard/destination-master"> Destination Master</button>
+      <button mat-menu-item routerLink="/dashboard/pincode-master"> Pincode Master</button>
+      <button mat-menu-item routerLink="/dashboard/country-master"> Country Master</button>
+      <button mat-menu-item routerLink="/dashboard/state-master"> State Master</button>
+      <button mat-menu-item routerLink="/dashboard/zone-master"> Zone Master</button>
+      <button mat-menu-item routerLink="/dashboard/multiple-zone-master"> Multiple Zone Master</button>
+      <button mat-menu-item routerLink="/dashboard/odamaster"> ODA Master</button>
+      <button mat-menu-item routerLink="/dashboard/mode-master"> Mode Master</button>
+      <button mat-menu-item routerLink="/dashboard/product-master"> Product Master</button>
+      <button mat-menu-item routerLink="/dashboard/customer-master"> Customer Master</button>
+      <button mat-menu-item routerLink="/dashboard/consignee-master"> Consignee Master</button>
+      <button mat-menu-item routerLink="/dashboard/expense-master"> Expense Master</button>
+      <button mat-menu-item routerLink="/dashboard/rate-master-customer"> Rate Master (customer)</button>
+      <button mat-menu-item routerLink="/dashboard/rate-master-franchise"> Rate Master (Franchise)</button>
+      <button mat-menu-item routerLink="/dashboard/rate-master-group"> Rate Master (Group)</button>
+      <button mat-menu-item routerLink="/dashboard/rate-master-view"> Rate Master (View)</button>
+      <button mat-menu-item routerLink="/dashboard/vehicle-master"> Vehicle Master</button>
+      <button mat-menu-item routerLink="/dashboard/employee-master"> Employee Master</button>
+  </mat-menu>
+  <!--Master Options End-->
+  <mat-divider></mat-divider>
+  
+    <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
+      <mat-icon>assignment</mat-icon>
+      <span>Operation</span>
+    </button>
+    <mat-menu #menu="matMenu" class="sideMenu">
+      <button mat-menu-item routerLink="/dashboard/booking">Booking</button>
+      <button mat-menu-item routerLink="/dashboard/fast-booking">Fast Booking</button>
+      <button mat-menu-item routerLink="/dashboard/manifest">Manifest</button>
+      <button mat-menu-item routerLink="/dashboard/in-scan">InScan</button>
+      <button mat-menu-item routerLink="/dashboard/run-sheet">RunSheet</button>
+      <button mat-menu-item routerLink="/dashboard/podupdate">POD Update</button>
+      <button mat-menu-item routerLink="/dashboard/permission">Permission</button>
+    </mat-menu>
+    <mat-divider></mat-divider>
+  
+    <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
+      <mat-icon>credit_card</mat-icon>
+      <span>Billing</span>
+    </button>
+    <mat-menu #menu="matMenu" class="sideMenu">
+      <button mat-menu-item routerLink="/dashboard/update-rate">Update Rate</button>
+      <button mat-menu-item routerLink="/dashboard/general-invoice">General Invoice</button>
+      <button mat-menu-item routerLink="/dashboard/view-invoice">View Invoice</button>
+    </mat-menu>
+    <mat-divider></mat-divider>
+  
+    <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
+      <mat-icon>info</mat-icon>
+      <span>Expense</span>
+    </button>
+    <mat-menu #menu="matMenu" class="sideMenu">
+      <button mat-menu-item routerLink="/dashboard/pickup">Pickup</button>
+      <button mat-menu-item routerLink="/dashboard/forwarding">Forwarding</button>
+      <button mat-menu-item routerLink="/dashboard/branch-vendor">Branch/Vendor</button>
+    </mat-menu>
+    <mat-divider></mat-divider>
+  
+    <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
+      <mat-icon>play_for_work</mat-icon>
+      <span>Import</span>
+    </button>
+    <mat-menu #menu="matMenu" class="sideMenu">
+      <button mat-menu-item routerLink="/dashboard/sales">Sales</button>
+      <button mat-menu-item routerLink="/dashboard/delivery">Delivery</button>
+      <button mat-menu-item routerLink="/dashboard/rto">RTO</button>
+    </mat-menu>
+    <mat-divider></mat-divider>
+  
+    <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
+      <mat-icon>receipt</mat-icon>
+      <span>Report</span>
+    </button>
+    <mat-menu #menu="matMenu" class="sideMenu">
+      <button mat-menu-item routerLink="/dashboard/query">Query</button>
+      <button mat-menu-item routerLink="/dashboard/sales">Sales</button>
+      <button mat-menu-item routerLink="/dashboard/inbound">Inbound</button>
+      <button mat-menu-item routerLink="/dashboard/pending-manifest">Pending Manifest</button>
+      <button mat-menu-item routerLink="/dashboard/log-file">Log File</button>
+      <button mat-menu-item routerLink="/dashboard/out-standing">Outstanding</button>
+      <button mat-menu-item routerLink="/dashboard/expense-report">Expense Report</button>
+      <button mat-menu-item routerLink="/dashboard/expense-report-profit-stmt">Expense Report (Profit Statement)</button>
+    </mat-menu>
+    <mat-divider></mat-divider>
+  
+    <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
+      <mat-icon>help</mat-icon>
+      <span>Help</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+  </mat-sidenav-container>
+  </div>
